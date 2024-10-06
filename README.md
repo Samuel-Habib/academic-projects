@@ -22,3 +22,13 @@
 `javac -d bin src/kindergarten/*.java`
 * To execute in the terminal, run `java -cp bin kindergarten.Driver`
 
+## Huffman Coding
+* `javac -d bin src/huffman/*.java`
+* `java -cp bin huffman.Driver`
+
+## InfinityWar
+
+### Compile and execute InfinityWar
+* `javac -d bin src/avengers/*.java`
+* `java -cp bin avengers.ForgeStormBreaker forgestormbreaker.in forgestormbreaker.out`
+- this will compile using the ForgeStormBreaker main method while taking in forgestormbreaker.in and creating the file forgestormbreaker.out`
