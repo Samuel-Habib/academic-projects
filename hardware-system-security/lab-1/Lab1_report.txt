@@ -1,0 +1,32 @@
+Lab 1 Report
+
+What is the first function being called when the Trusted Application is executed? 
+
+The TA_CreateEntryPoint(void) function is the first function called in the TA.
+
+
+From this function, which parameters come from the normal world, and which parameters come from the secure world?
+
+TA_CreateEntryPoint(void) takes no paramters. 
+
+then TA_OpenSessionEntryPoint() is called
+- normal world
+  - param_types
+  params[4]
+- secure world
+  - sess_ctx
+
+
+TA_InvokeCommandEntryPoint()
+- normal world
+  - cmd_id
+  - params[4]
+  - param_types
+- secure world
+  - sess_ctx
+
+
+
+
+
+

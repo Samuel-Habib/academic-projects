@@ -1,0 +1,22 @@
+enclave {
+
+    from "sgx_tstdc.edl" import *;
+
+    trusted {
+
+        /* Define a secure ECALL to generate a random number */
+	
+	public int deposit(int amount);
+	public int pay(int amount);
+	public int view_balance();
+	public int view_transactions();
+
+    };
+
+    untrusted {
+        /* You can define OCALLs here if needed */
+	void ocall_print_string([in, string] const char *str);
+
+    };
+
+};

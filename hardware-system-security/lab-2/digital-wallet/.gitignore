@@ -1,0 +1,9 @@
+*.o
+*.so
+secure_rng
+.config_*
+App/Enclave_u.c
+App/Enclave_u.h
+Enclave/Enclave_t.c
+Enclave/Enclave_t.h
+Enclave/Enclave_private_test.pem

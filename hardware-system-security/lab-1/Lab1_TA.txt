@@ -1,0 +1,421 @@
+Script started on 2026-03-11 01:33:08+00:00 [COMMAND="/workspace/optee-qemu/qemu/build/qemu-system-arm \   -nographic \   -smp 2 \   -d unimp \   -semihosting-config enable=on,target=native \   -m 1057 \   -bios bl1.bin \   -machine virt,secure=on \   -cpu cortex-a15 \   -object rng-random,filename=/dev/urandom,id=rng0 \   -device virtio-rng-pci,rng=rng0,max-bytes=1024,period=1000 \   -netdev user,id=vmnic \   -device virtio-net-device,netdev=vmnic \   -monitor none \   -serial stdio \   -serial file:serial1.log" TERM="xterm" TTY="/dev/pts/0" COLUMNS="127" LINES="89"]
+NOTICE:  Booting Trusted Firmware
+NOTICE:  BL1: v2.12.0(release):v2.12
+NOTICE:  BL1: Built : 23:08:19, Mar  8 2026
+WARNING: Firmware Image Package header check failed.
+NOTICE:  BL1: Booting BL2
+NOTICE:  BL2: v2.12.0(release):v2.12
+NOTICE:  BL2: Built : 23:08:22, Mar  8 2026
+WARNING: Firmware Image Package header check failed.
+WARNING: Firmware Image Package header check failed.
+WARNING: Firmware Image Package header check failed.
+NOTICE:  BL1: Booting BL32
+
+
+U-Boot 2024.07 (Mar 11 2026 - 00:54:32 +0000)
+
+DRAM:  1 GiB
+Core:  50 devices, 13 uclasses, devicetree: board
+Loading Environment from nowhere... OK
+In:    serial,usbkbd
+Out:   serial,vidconsole
+Err:   serial,vidconsole
+No USB controllers found
+Net:   eth0: virtio-net#31
+[?25h
+starting USB...
+No USB controllers found
+Hit any key to stop autoboot:  2  1  0 
+Working FDT set to 40000000
+6431128 bytes read in 16 ms (383.3 MiB/s)
+10219832 bytes read in 41 ms (237.7 MiB/s)
+Kernel image @ 0x40400000 [ 0x000000 - 0x622198 ]
+## Flattened Device Tree blob at 40000000
+   Booting using the fdt blob at 0x40000000
+Working FDT set to 40000000
+ERROR: reserving fdt memory region failed (addr=7fe00000 size=200000 flags=4)
+   Using Device Tree in place at 40000000, end 40006fff
+Working FDT set to 40000000
+
+Starting kernel ...
+
+Booting Linux on physical CPU 0x0
+Linux version 6.18.0 (root@80bb943553b9) (arm-linux-gnueabihf-gcc (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623, GNU ld (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 2.44.0.20250616) #2 SMP Wed Mar 11 00:56:45 UTC 2026
+CPU: ARMv7 Processor [414fc0f0] revision 0 (ARMv7), cr=10c5387d
+CPU: div instructions available: patching division code
+CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+OF: fdt: Machine model: linux,dummy-virt
+random: crng init done
+Memory policy: Data cache writealloc
+cma: Reserved 16 MiB at 0x81000000
+Zone ranges:
+  Normal   [mem 0x0000000040000000-0x00000000820fffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000040000000-0x000000007fdfffff]
+  node   0: [mem 0x000000007fe00000-0x000000007fffffff]
+  node   0: [mem 0x0000000080000000-0x00000000820fffff]
+Initmem setup node 0 [mem 0x0000000040000000-0x00000000820fffff]
+On node 0, zone Normal: 768 pages in unavailable ranges
+OF: reserved mem: 0x0e100000..0x0effffff (15360 KiB) nomap non-reusable optee_core@e100000
+OF: reserved mem: 0x7fe00000..0x7fffffff (2048 KiB) nomap non-reusable optee_shm@7fe00000
+psci: probing for conduit method from DT.
+psci: PSCIv1.1 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: MIGRATE_INFO_TYPE not supported.
+psci: SMC Calling Convention v1.0
+percpu: Embedded 17 pages/cpu s38604 r8192 d22836 u69632
+Kernel command line: console=ttyAMA0,115200 earlyprintk=serial,ttyAMA0,115200
+Unknown kernel command line parameters "earlyprintk=serial,ttyAMA0,115200", will be passed to user space.
+printk: log buffer data + meta data: 16384 + 51200 = 67584 bytes
+Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Built 1 zonelists, mobility grouping on.  Total pages: 270592
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU event tracing is enabled.
+rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=2.
+	Tracing variant of Tasks RCU enabled.
+rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+RCU Tasks Trace: Setting shift to 1 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=2.
+NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+arch_timer: cp15 timer running at 62.50MHz (virt).
+clocksource: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+sched_clock: 57 bits at 63MHz, resolution 16ns, wraps every 4398046511096ns
+Switching to timer-based delay loop, resolution 16ns
+Console: colour dummy device 80x30
+Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+CPU: Testing write buffer coherency: ok
+CPU0: Spectre v2: firmware did not set auxiliary control register IBE bit, system vulnerable
+CPU0: Spectre BHB: enabling loop workaround for all CPUs
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+/cpus/cpu@0 missing clock-frequency property
+/cpus/cpu@1 missing clock-frequency property
+CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+cacheinfo: Unable to detect cache hierarchy for CPU 0
+Setting up static identity map for 0x40100000 - 0x40100060
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+smp: Bringing up secondary CPUs ...
+CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+CPU1: Spectre v2: firmware did not set auxiliary control register IBE bit, system vulnerable
+smp: Brought up 1 node, 2 CPUs
+SMP: Total of 2 processors activated (250.00 BogoMIPS).
+CPU: All CPU(s) started in SVC mode.
+Memory: 1026088K/1082368K available (10240K kernel code, 773K rwdata, 2320K rodata, 1024K init, 158K bss, 36800K reserved, 16384K cma-reserved)
+devtmpfs: initialized
+VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+posixtimers hash table entries: 1024 (order: 1, 8192 bytes, linear)
+futex hash table entries: 512 (32768 bytes on 1 NUMA nodes, total 32 KiB, linear).
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+DMA: preallocated 256 KiB pool for atomic coherent allocations
+cpuidle: using governor ladder
+hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+hw-breakpoint: maximum watchpoint size is 8 bytes.
+Serial: AMBA PL011 UART driver
+9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 28, base_baud = 0) is a PL011 rev1
+printk: console [ttyAMA0] enabled
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+pps_core: LinuxPPS API ver. 1 registered
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+PTP clock support registered
+Advanced Linux Sound Architecture Driver Initialized.
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 3, 28672 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 3, 28672 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp-with-tls transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+workingset: timestamp_bits=30 max_order=18 bucket_order=0
+Unpacking initramfs...
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+9p: Installing v9fs 9p2000 file system support
+io scheduler mq-deadline registered
+io scheduler kyber registered
+io scheduler bfq registered
+ledtrig-cpu: registered to indicate activity on CPUs
+physmap-flash 4000000.flash: physmap platform flash device: [mem 0x04000000-0x07ffffff]
+4000000.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+Intel/Sharp Extended Query Table at 0x0031
+Using buffer write method
+Initramfs unpacking failed: invalid magic at start of compressed archive
+Freeing initrd memory: 9984K
+usbcore: registered new interface driver usb-storage
+rtc-pl031 9010000.pl031: registered as rtc0
+rtc-pl031 9010000.pl031: setting system clock to 2026-03-11T01:33:11 UTC (1773192791)
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+optee: probing for conduit method.
+optee: revision 4.9 (21a15d2e)
+optee: Asynchronous notifications enabled
+optee: dynamic shared memory is enabled
+optee: initialized driver
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered PF_PACKET protocol family
+9pnet: Installing 9P2000 support
+Registering SWP/SWPB emulation handler
+Key type trusted registered
+Key type encrypted registered
+clk: Disabling unused clocks
+ALSA device list:
+  No soundcards found.
+Freeing unused kernel image (initmem) memory: 1024K
+Run /init as init process
+Saving 256 bits of creditable seed for next boot
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Set permissions on /dev/tee*: OK
+Create/set permissions on /var/lib/tee: OK
+Starting tee-supplicant: Using device /dev/teepriv0.
+OK
+Starting network: OK
+Starting crond: OK
+Starting network (udhcpc): OK
+
+Welcome to Buildroot, type root or test to login
+buildroot login: root
+# op# op[Jtee_ex# optee_example_[J
+optee_example_acipher         optee_example_plugins
+optee_example_aes             optee_example_random
+optee_example_ecdh            optee_example_secure_storage
+optee_example_ecdsa           optee_example_sha
+optee_example_hello_world     optee_example_sign_verify
+optee_example_hotp
+# optee_example_[Jhe# optee_example_hello_world [J
+Invoking TA to increment 42
+TA incremented value to 43
+# poweroff
+# Stopping network (udhcpc): OK
+Stopping crond: stopped /usr/sbin/crond (pid 113)
+OK
+Stopping network: OK
+Stopping tee-supplicant: FAIL
+Stopping klogd: OK
+Stopping syslogd: stopped /sbin/syslogd (pid 78)
+OK
+Seeding 256 bits and crediting
+Saving 256 bits of creditable seed for next boot
+umount: devtmpfs busy - remounted read-only
+The system is going down NOW!
+Sent SIGTERM to all processes
+Sent SIGKILL to all processes
+Requesting system poweroff
+Flash device refused suspend due to active operation (state 20)
+reboot: Power down
+qemu-system-arm: terminating on signal 2
+
+Script done on 2026-03-11 01:39:52+00:00 [COMMAND_EXIT_CODE="130"]
+D/TC:0   collect_mem_ranges:1126 tee_ram_initial_offs 0
+D/TC:0   add_phys_mem:776 VCORE_UNPG_RX_PA type TEE_RAM_RX 0x0e100000 size 0x00067000
+D/TC:0   add_phys_mem:776 VCORE_UNPG_RW_PA type TEE_RAM_RW 0x0e167000 size 0x0002b000
+D/TC:0   add_phys_mem:776 VCORE_UNPG_RW_PA type SEC_RAM_OVERALL 0x0e167000 size 0x0002b000
+D/TC:0   add_phys_mem:776 VCORE_FREE_PA type TEE_RAM_RW 0x0e192000 size 0x0016e000
+D/TC:0   merge_mmaps:729 Merging 0xe167000..0xe191fff and 0xe192000..0xe2fffff
+D/TC:0   add_phys_mem:776 VCORE_FREE_PA type SEC_RAM_OVERALL 0x0e192000 size 0x0016e000
+D/TC:0   merge_mmaps:729 Merging 0xe167000..0xe191fff and 0xe192000..0xe2fffff
+D/TC:0   add_phys_mem:776 next_pa type SEC_RAM_OVERALL 0x0e300000 size 0x00d00000
+D/TC:0   merge_mmaps:729 Merging 0xe167000..0xe2fffff and 0xe300000..0xeffffff
+D/TC:0   add_phys_mem:776 GICD_BASE type IO_SEC 0x08000000 size 0x00100000
+D/TC:0   add_phys_mem:776 GICC_BASE type IO_SEC 0x08000000 size 0x00100000
+D/TC:0   merge_mmaps:729 Merging 0x8000000..0x80fffff and 0x8000000..0x80fffff
+D/TC:0   add_phys_mem:776 SECRAM_BASE type IO_SEC 0x0e000000 size 0x00100000
+D/TC:0   add_phys_mem:776 CONSOLE_UART_BASE type IO_SEC 0x09000000 size 0x00100000
+D/TC:0   add_phys_mem:776 TEE_SHMEM_START type NSEC_SHM 0x7fe00000 size 0x00200000
+D/TC:0   add_va_space:820 type RES_VASPACE size 0x00a00000
+D/TC:0   add_va_space:820 type SHM_VASPACE size 0x02000000
+D/TC:0   add_va_space:820 type TEE_DYN_VASPACE size 0x00100000
+D/TC:0   init_mem_map:1524 Mapping core at 0x83a1f000 offs 0x7591f000
+D/TC:0   dump_mmap_table:946 type IDENTITY_MAP_RX va 0x0e100000..0x0e100fff pa 0x0e100000..0x0e100fff size 0x00001000 (smallpg)
+D/TC:0   dump_mmap_table:946 type NSEC_SHM     va 0x7f800000..0x7f9fffff pa 0x7fe00000..0x7fffffff size 0x00200000 (pgdir)
+D/TC:0   dump_mmap_table:946 type SEC_RAM_OVERALL va 0x7fa67000..0x808fffff pa 0x0e167000..0x0effffff size 0x00e99000 (pgdir)
+D/TC:0   dump_mmap_table:946 type IO_SEC       va 0x80a00000..0x80afffff pa 0x0e000000..0x0e0fffff size 0x00100000 (pgdir)
+D/TC:0   dump_mmap_table:946 type IO_SEC       va 0x80b00000..0x80bfffff pa 0x09000000..0x090fffff size 0x00100000 (pgdir)
+D/TC:0   dump_mmap_table:946 type IO_SEC       va 0x80c00000..0x80cfffff pa 0x08000000..0x080fffff size 0x00100000 (pgdir)
+D/TC:0   dump_mmap_table:946 type TEE_DYN_VASPACE va 0x80d00000..0x80dfffff pa 0x00000000..0x000fffff size 0x00100000 (pgdir)
+D/TC:0   dump_mmap_table:946 type SHM_VASPACE  va 0x80e00000..0x82dfffff pa 0x00000000..0x01ffffff size 0x02000000 (pgdir)
+D/TC:0   dump_mmap_table:946 type RES_VASPACE  va 0x82f00000..0x838fffff pa 0x00000000..0x009fffff size 0x00a00000 (pgdir)
+D/TC:0   dump_mmap_table:946 type TEE_RAM_RX   va 0x83a1f000..0x83a85fff pa 0x0e100000..0x0e166fff size 0x00067000 (smallpg)
+D/TC:0   dump_mmap_table:946 type TEE_RAM_RW   va 0x83a86000..0x83c1efff pa 0x0e167000..0x0e2fffff size 0x00199000 (smallpg)
+D/TC:0   add_padding:96 0xe192000 len 0x2000
+D/TC:0   add_padding:96 0xe198100 len 0xf00
+D/TC:0   alloc_l2_table:336 L2 tables used 1
+D/TC:0   alloc_l2_table:336 L2 tables used 2
+D/TC:0   alloc_l2_table:336 L2 tables used 3
+D/TC:0   alloc_l2_table:336 L2 tables used 4
+D/TC:0   alloc_l2_table:336 L2 tables used 5
+I/TC: 
+D/TC:0   carve_out_core_mem:2776 0xe100000 .. 0xe300000
+D/TC:0   boot_mem_foreach_padding:268 consumed 0x83ab7100 0x83ab7100 len 0xf00
+D/TC:0   boot_mem_foreach_padding:268 consumed 0x83ab1000 0x83ab1000 len 0x2000
+D/TC:0   boot_mem_release_unused:294 Allocated 37056 bytes at va 0x83ab1000 pa 0xe192000
+D/TC:0   boot_mem_release_unused:298 Tempalloc 33368 bytes at va 0x83c16da8
+D/TC:0   boot_mem_release_unused:320 Carving out 0xe100000..0xe19b0bf
+D/TC:0   boot_mem_release_unused:329 Releasing 1425216 bytes from va 0x83abb000
+I/TC: Non-secure external DT found
+D/TC:0   discover_nsec_memory:158 Non-secure memory found in extern DT
+D/TC:0   core_mmu_set_discovered_nsec_ddr:538 Non-secure RAM:
+D/TC:0   core_mmu_set_discovered_nsec_ddr:540 0: pa 0x40000000..0x7fdfffff sz 0x3fe00000
+D/TC:0   core_mmu_set_discovered_nsec_ddr:540 1: pa 0x80000000..0x820fffff sz 0x2100000
+D/TC:0   dt_add_psci_node:724 PSCI Device Tree node already exists!
+I/TC: Embedded DTB found
+D/TC:0   get_console_node_from_dt:105 No console directive from DTB
+D/TC:0   alloc_l2_table:336 L2 tables used 6
+I/TC: OP-TEE version: 4.9.0-50-g21a15d2ec (gcc version 14.3.1 20250623 (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174))) #1 Sun Mar  8 23:07:00 UTC 2026 arm
+I/TC: WARNING: This OP-TEE configuration might be insecure!
+I/TC: WARNING: Please check https://optee.readthedocs.io/en/latest/architecture/porting_guidelines.html
+I/TC: Primary CPU initializing
+D/TC:0 0 boot_init_primary_runtime:1052 Executing at offset 0x7591f000 with virtual load address 0x83a1f000
+D/TC:0 0 do_init_calls:19 preinitcall level 2 mobj_mapped_shm_init()
+D/TC:0 0 mobj_mapped_shm_init:540 Shared memory address range: 80e00000, 82e00000
+D/TC:0 0 do_init_calls:19 early_initcall level 1 teecore_init_pub_ram()
+D/TC:0 0 do_init_calls:19 early_initcall level 1 nex_init_periodic_callback()
+D/TC:0 0 nex_init_periodic_callback:155 Adding a periodic callout
+D/TC:0 0 do_init_calls:19 early_initcall level 1 nex_init_test_wd()
+D/TC:0 0 do_init_calls:19 early_initcall level 2 probe_dt_drivers_early()
+D/TC:0 0 add_node_to_probe:705 element: dt-test-consumer on node dt-test-consumer
+D/TC:0 0 add_node_to_probe:705 element: simple-bus on node dt-test-bus-b0
+D/TC:0 0 add_node_to_probe:705 element: dt-test-crypt-consumer on node dt-test-crypt-consumer
+D/TC:0 0 probe_driver_node:513 element: dt-test-crypt-consumer on node dt-test-crypt-consumer deferred 1 time(s)
+D/TC:0 0 add_node_to_probe:705 element: simple-bus on node dt-test-bus-b1
+D/TC:0 0 probe_driver_node:507 element: simple-bus on node dt-test-bus-b0 initialized
+D/TC:0 0 probe_driver_node:513 element: dt-test-consumer on node dt-test-consumer deferred 1 time(s)
+D/TC:0 0 probe_driver_node:513 element: dt-test-consumer on node dt-test-consumer deferred 2 time(s)
+D/TC:0 0 add_node_to_probe:705 element: simple-bus on node dt-test-bus-b2
+D/TC:0 0 probe_driver_node:507 element: simple-bus on node dt-test-bus-b1 initialized
+D/TC:0 0 probe_driver_node:513 element: dt-test-crypt-consumer on node dt-test-crypt-consumer deferred 2 time(s)
+D/TC:0 0 probe_driver_node:513 element: dt-test-crypt-consumer on node dt-test-crypt-consumer deferred 3 time(s)
+D/TC:0 0 add_node_to_probe:705 element: simple-bus on node dt-test-bus-b3
+D/TC:0 0 probe_driver_node:507 element: simple-bus on node dt-test-bus-b2 initialized
+D/TC:0 0 probe_driver_node:513 element: dt-test-consumer on node dt-test-consumer deferred 3 time(s)
+D/TC:0 0 probe_driver_node:513 element: dt-test-consumer on node dt-test-consumer deferred 4 time(s)
+D/TC:0 0 add_node_to_probe:705 element: dt_test_gpio_provider on node dt-test-provider@0
+D/TC:0 0 add_node_to_probe:705 element: dt_test_rstctrl_provider on node dt-test-provider@0
+D/TC:0 0 add_node_to_probe:705 element: dt_test_clock_provider on node dt-test-provider@0
+D/TC:0 0 probe_driver_node:507 element: simple-bus on node dt-test-bus-b3 initialized
+D/TC:0 0 probe_driver_node:513 element: dt-test-crypt-consumer on node dt-test-crypt-consumer deferred 4 time(s)
+D/TC:0 0 probe_driver_node:513 element: dt-test-crypt-consumer on node dt-test-crypt-consumer deferred 5 time(s)
+D/TC:0 0 clk_register:127 Registered clock dt_test-clk3, freq 0
+D/TC:0 0 clk_register:127 Registered clock dt_test-clk7, freq 0
+D/TC:0 0 probe_driver_node:507 element: dt_test_clock_provider on node dt-test-provider@0 initialized
+D/TC:0 0 probe_driver_node:507 element: dt_test_rstctrl_provider on node dt-test-provider@0 initialized
+D/TC:0 0 probe_driver_node:507 element: dt_test_gpio_provider on node dt-test-provider@0 initialized
+D/TC:0 0 probe_driver_node:507 element: dt-test-consumer on node dt-test-consumer initialized
+D/TC:0 0 probe_driver_node:513 element: dt-test-crypt-consumer on node dt-test-crypt-consumer deferred 6 time(s)
+D/TC:0 0 process_probe_list:654 Unresolved dependencies after 6 rounds, 6 deferred
+D/TC:0 0 probe_dt_drivers_early:840 Deferred drivers probing
+D/TC:0 0 print_probe_list:461 Probe list: 1 elements
+D/TC:0 0 print_probe_list:463 |- Driver dt-test-crypt-consumer probes on node dt-test-crypt-consumer
+D/TC:0 0 print_probe_list:467 `- Probe list end
+D/TC:0 0 print_probe_list:473 Failed list: 0 elements
+D/TC:0 0 print_probe_list:478 `- Failed list end
+D/TC:0 0 do_init_calls:19 service_initcall level 1 tee_cryp_init()
+D/TC:0 0 do_init_calls:19 service_initcall level 2 notif_init()
+D/TC:0 0 do_init_calls:19 service_initcall level 2 check_ta_store()
+D/TC:0 0 check_ta_store:460 TA store: "early TA"
+D/TC:0 0 check_ta_store:460 TA store: "Secure Storage TA"
+D/TC:0 0 check_ta_store:460 TA store: "REE"
+D/TC:0 0 do_init_calls:19 service_initcall level 2 early_ta_init()
+D/TC:0 0 early_ta_init:56 Early TA f04a0fe7-1f5d-4b9b-abf7-619b85b4ce8c size 41580 (compressed, uncompressed 71716)
+D/TC:0 0 do_init_calls:19 service_initcall level 2 verify_pseudo_tas_conformance()
+D/TC:0 0 do_init_calls:19 service_initcall level 3 tee_fs_init_key_manager()
+D/TC:0 0 boot_mem_release_tmp_alloc:370 Releasing 36864 bytes from va 0x83c16000
+D/TC:0 0 do_init_calls:19 driver_initcall level 1 init_console_itr()
+D/TC:0 0 gic_it_set_cpu_mask:691 cpu_mask: writing 0xff to 0x80c00828
+D/TC:0 0 gic_it_set_cpu_mask:693 cpu_mask: 0xff
+D/TC:0 0 gic_it_set_prio:707 prio: writing 0x1 to 0x80c00428
+D/TC:0 0 do_init_calls:19 driver_initcall level 1 probe_dt_drivers()
+D/TC:0 0 probe_driver_node:507 element: dt-test-crypt-consumer on node dt-test-crypt-consumer initialized
+D/TC:0 0 do_init_calls:19 driver_initcall level 2 init_multi_core_halt_handler()
+D/TC:0 0 gic_it_set_cpu_mask:691 cpu_mask: writing 0xff010101 to 0x80c0080c
+D/TC:0 0 gic_it_set_cpu_mask:693 cpu_mask: 0x1010101
+D/TC:0 0 gic_it_set_prio:707 prio: writing 0x1 to 0x80c0040f
+D/TC:0 0 do_init_calls:19 driver_initcall level 2 mobj_init()
+D/TC:0 0 do_init_calls:19 driver_initcall level 2 default_mobj_init()
+D/TC:0 0 do_init_calls:19 driver_initcall level 2 ftmn_boot_tests()
+D/TC:0 0 ftmn_boot_tests:198 Calling simple_call()
+D/TC:0 0 ftmn_boot_tests:198 Return from simple_call()
+D/TC:0 0 ftmn_boot_tests:199 Calling two_level_call()
+D/TC:0 0 ftmn_boot_tests:199 Return from two_level_call()
+D/TC:0 0 ftmn_boot_tests:200 Calling chained_calls()
+D/TC:0 0 ftmn_boot_tests:200 Return from chained_calls()
+D/TC:0 0 ftmn_boot_tests:202 *************************************************
+D/TC:0 0 ftmn_boot_tests:203 **************  Tests complete  *****************
+D/TC:0 0 ftmn_boot_tests:204 *************************************************
+D/TC:0 0 do_init_calls:19 driver_initcall level 3 gic_set_primary_done()
+D/TC:0 0 do_init_calls:19 driver_initcall level 3 release_node_cache_info()
+D/TC:0 0 do_init_calls:19 driver_initcall level 3 release_probe_lists()
+D/TC:0 0 do_init_calls:19 driver_initcall level 3 dt_test_release()
+D/TC:0 0 do_init_calls:19 finalcall level 8 release_external_dt()
+I/TC: Primary CPU switching to normal world boot
+D/TC:0   psci_cpu_on:293 core pos: 1: ns_entry 0x40111000
+I/TC: Secondary CPU 1 initializing
+I/TC: Secondary CPU 1 switching to normal world boot
+I/TC: Reserved shared memory is enabled
+I/TC: Dynamic shared memory is enabled
+I/TC: Normal World virtualization support is disabled
+I/TC: Asynchronous notifications are enabled
+D/TC:1   atomic_console_notif:158 Asynchronous notifications started, event 0 (vm 0)
+D/TC:1 0 alloc_l2_table:336 L2 tables used 7
+D/TC:? 0 tee_ta_init_pseudo_ta_session:303 Lookup pseudo TA 7011a688-ddde-4053-a5a9-7b3c4ddf13b8
+D/TC:? 0 tee_ta_init_pseudo_ta_session:315 Open device.pta
+D/TC:? 0 tee_ta_init_pseudo_ta_session:330 device.pta : 7011a688-ddde-4053-a5a9-7b3c4ddf13b8
+D/TC:? 0 tee_ta_close_session:469 csess 0x83aaa3b8 id 1
+D/TC:? 0 tee_ta_close_session:488 Destroy session
+D/TC:? 0 tee_ta_init_pseudo_ta_session:303 Lookup pseudo TA f04a0fe7-1f5d-4b9b-abf7-619b85b4ce8c
+D/TC:? 0 ldelf_load_ldelf:110 ldelf load address 0x105000
+D/LD:  ldelf:151 Loading TS f04a0fe7-1f5d-4b9b-abf7-619b85b4ce8c
+D/TC:? 0 ldelf_syscall_open_bin:163 Lookup user TA ELF f04a0fe7-1f5d-4b9b-abf7-619b85b4ce8c (early TA)
+D/TC:? 0 ldelf_syscall_open_bin:167 res=0
+D/LD:  ldelf:185 ELF (f04a0fe7-1f5d-4b9b-abf7-619b85b4ce8c) at 0x16b000
+D/TC:? 0 tee_ta_init_session_with_context:569 Re-open trusted service 7011a688-ddde-4053-a5a9-7b3c4ddf13b8
+D/TC:? 0 tee_ta_close_session:469 csess 0x83aa9b00 id 2
+D/TC:? 0 tee_ta_close_session:488 Destroy session
+D/TC:? 0 tee_ta_init_pseudo_ta_session:303 Lookup pseudo TA 8aaaf200-2450-11e4-abe2-0002a5d5c51b
+D/TC:? 0 ldelf_load_ldelf:110 ldelf load address 0x105000
+D/LD:  ldelf:151 Loading TS 8aaaf200-2450-11e4-abe2-0002a5d5c51b
+D/TC:? 0 ldelf_syscall_open_bin:163 Lookup user TA ELF 8aaaf200-2450-11e4-abe2-0002a5d5c51b (early TA)
+D/TC:? 0 ldelf_syscall_open_bin:167 res=0xffff0008
+D/TC:? 0 ldelf_syscall_open_bin:163 Lookup user TA ELF 8aaaf200-2450-11e4-abe2-0002a5d5c51b (Secure Storage TA)
+I/TC: WARNING (insecure configuration): Failed to get monotonic counter for REE FS, using 0
+D/TC:? 0 ree_fs_open_primitive:465 Remove corrupt file
+I/TC: WARNING (insecure configuration): Failed to commit dirh counter 2
+D/TC:? 0 ldelf_syscall_open_bin:167 res=0xffff0008
+D/TC:? 0 ldelf_syscall_open_bin:163 Lookup user TA ELF 8aaaf200-2450-11e4-abe2-0002a5d5c51b (REE)
+D/TC:? 0 ldelf_syscall_open_bin:167 res=0
+D/LD:  ldelf:185 ELF (8aaaf200-2450-11e4-abe2-0002a5d5c51b) at 0x11d000
+D/TA:  TA_CreateEntryPoint:18 has been called
+D/TA:  __GP11_TA_OpenSessionEntryPoint:47 has been called
+I/TA: Hello World!
+D/TA:  inc_value:78 has been called
+I/TA: Got value: 42 from NW
+I/TA: Increase value to: 43
+D/TC:? 0 tee_ta_close_session:469 csess 0x83aa9b00 id 2
+D/TC:? 0 tee_ta_close_session:488 Destroy session
+I/TA: Goodbye!
+D/TA:  TA_DestroyEntryPoint:29 has been called
+D/TC:? 0 destroy_context:326 Destroy TA ctx (0x83aa9ac0)
