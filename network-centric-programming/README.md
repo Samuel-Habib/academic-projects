@@ -27,7 +27,7 @@ Run `make` inside a project directory. Example commands:
 | Multiple processes | `./h1 200 10` |
 | Multiple threads | `./main 200 10` |
 
-Each directory includes the assignment specification and original submission archive. C source and build files are available directly alongside the archives. The buffer-overflow directory contains the submitted report, lab specification, and supplied binary handout. CS:APP helper code and supplied examples retain their original attribution.
+Each directory includes the assignment specification and submitted project files, including source, build files, and any supplied binaries or test data. The buffer-overflow directory contains the submitted report, lab specification, and supplied tools in `handout/`. CS:APP helper code and supplied examples retain their original attribution.
 
 ## Validation and scope
 
