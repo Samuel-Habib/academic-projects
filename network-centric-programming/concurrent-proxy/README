@@ -1,0 +1,19 @@
+****************
+CS:APP Proxy Lab
+****************
+
+Makefile	- For building proxy
+README		- This file
+
+# Proxy source files
+proxy.{c,h}	- Primary proxy code
+csapp.{c,h}	- Wrapper and helper functions from the CS:APP text
+
+To run the process version, you can do ./proxy -p 8080 or ./proxy --process 8080
+For threads: ./proxy -t 8080 or ./proxy --thread 8080
+
+
+you can use the script test.sh to test for concurrency 
+
+chmod +x test.sh
+./test.sh
