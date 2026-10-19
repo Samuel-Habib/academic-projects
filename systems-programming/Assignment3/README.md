@@ -1,0 +1,63 @@
+1. Project Members
+    - Samuel Habib smh389
+    - Victor Peng vmp134
+
+2. Testing Plan
+    - Unit Tests (shellTest.c)
+        - read_line() 
+            - Tested read_line()'s correctness and input buffer to see if read string was same as command in shellTest1.sh
+        - tokenize()
+            - Tests if tokenize() gets correct amount of tokens, and that the read tokens in tokens[] are correct
+        - parse_job()
+            - Tokenizes a string and runs parse_job(), and we check that most aspects (number of commands, arguments, output file) are correct
+            - Specifically, we pass "ls -l | grep .c > out.txt" to tokenize(), and see that we have two commands, that the first command uses "ls", that the output_file is "out.txt", etc.
+        - is_builtin()
+            - Tested all four built-in commands to see if they are equal to BUILTIN_CD, BUILTIN_PWD, etc.
+        - resolve_path()
+            - Tests if resolve_path() succeeded, if it has a part of the input in the output path, and if it fails when a fake command is given
+            - Specifically, we used "ls" as an example, so /usr/bin/ls would show up. 
+        - execute_command()
+            - Creates a Command and executes it, comparing the cwd
+            - Specifically, we make a command "cd .." and check if the cwd before and after the command are not the same
+        - execute_job()
+            - Creates a Job with one command, and tests if that command ran through execute_job()
+            - Specifically, we write to a file and check if the written info is the same as what we expect 
+    - Integration Tests (./mysh) 
+        - Interactive Mode   
+            - "./crash" 
+                - Confirmed output of "Terminated by signal 11: Segmentation fault"
+            - "ls -l" 
+                - Confirmed output of "-rwxr-x--- 1 vmp134 vmp134 41296 Apr 15 15:32 mysh" alongside other entries in the same directory. entries are the same as listed. 
+            - "which ls" 
+                - Confirmed output of "/usr/bin/ls"
+            - "pwd"
+                - Confirmed output of "/common/home/vmp134/RutgersCoursework/cs214/Assignments/Assignment3"
+            - "exit"
+                - Confirmed exited out of mysh
+            - "cd .."
+                - Confirmed moved cwd to the layer above
+        - Batch Mode
+            - "./mysh shellTest1.sh" 
+                - Confirmed output of "hello"
+            - "./mysh shellTest2.sh"
+                - Confirmed the following outputs:
+                - 3 lines, 3 words, and 23 bytes for crash, crash.c, and makefile
+                - Listed all .c files
+                - Error trying to access "fake*.txt
+                - "./crash", shell survived
+
+3. Design Notes
+    - Structure
+        - We kept all of our functions and shell logic in files separate from mysh.c
+        - This was for ease of use, allowing us to test our logic without compiling mysh.c
+    - Input
+        - We used a static internal buffer (ibuf) to scan large chunks of data instead of reading character-by-character, avoiding large amounts of system calls
+    - Tokenizing
+        - We pass first for comment (#), so that we avoid any text that does not need to be parsed
+        - We used GLOB_NOCHECK so that if a wildcard pattern does not match any files, we just treat the whole string as an argument
+    - Execution
+        - We split execution into execute_job() and execute_command(), with the former handling pipes along with looping through a job and the latter handling dup2() to redirect STDIN and STDOUT
+        - We used WIFSIGNALED to catch crashes, with mysh giving us a reason as to why a child process fails
+    - Miscellaneous
+        - We followed p3.pdf's guidelines and structure to ensure our code fits the requirements
+        - This includes keeping track of what to print out in interactive mode, or making sure we get exit status/termination when execution is done, or keeping track of exit to terminate 
