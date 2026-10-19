@@ -7,6 +7,7 @@ Coursework in C systems and network programming, RISC-V assembly, processor arch
 | --- | --- | --- |
 | [Systems Programming](systems-programming/) | Memory allocator, Unix shell, TCP chat server, file comparison | Memory management, processes, pipes, sockets, I/O multiplexing |
 | [Network-Centric Programming](network-centric-programming/) | Concurrent web proxy, multicast heartbeats, process and thread exercises | TCP/UDP sockets, concurrency, IPC, I/O multiplexing |
+| [Parallel Programming](parallel-programming/) | CUDA and SIMD Mandelbrot, reciprocal summation, parallel sieve coursework | GPU kernels, AVX2/FMA, C++ threads, numerical computation |
 | [Computer Architecture](computer-architecture/) | Assembly routines and pipeline analysis | Stack operations, procedure calls, memory addressing, data hazards |
 | [Data Structures](data-structures/) | Huffman coding, graph algorithms, simulations | Trees, linked lists, arrays, shortest paths |
 
